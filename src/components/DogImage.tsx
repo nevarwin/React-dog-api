@@ -28,7 +28,7 @@ const DogImage = () => {
   };
   return (
     <Box
-      sx={{ maxHeight: "100vh", overflow: "auto" }}
+      sx={{ maxHeight: "100vh" }}
       width={"1000px"}
       style={{
         position: "absolute",
