@@ -1,4 +1,6 @@
 import DogImage from "./components/DogImage";
+import DogNotFound from "./components/DogNotFound";
+
 import {
   Route,
   RouterProvider,
@@ -11,7 +13,8 @@ const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<MainLayout />}>
-        <Route index element={<DogImage />} />
+        <Route path="/dog" element={<DogImage />} />
+        <Route path="*" element={<DogNotFound />} />
       </Route>
     )
   );
