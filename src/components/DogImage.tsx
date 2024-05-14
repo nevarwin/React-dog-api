@@ -3,10 +3,10 @@ import {
   Button,
   Card,
   CardActions,
+  CardContent,
   CardMedia,
   Typography,
 } from "@mui/material";
-import CardContent from "@mui/material/CardContent";
 import { useEffect, useState } from "react";
 
 const DogImage = () => {
@@ -26,30 +26,42 @@ const DogImage = () => {
     const data = await response.json();
     setDogImage(data.message);
   };
+
   return (
     <Box
-      sx={{ maxHeight: "100vh" }}
-      width={"1000px"}
-      style={{
-        position: "absolute",
-        top: "50%",
-        left: "50%",
-        transform: "translate(-50%, -50%)",
+      sx={{
+        textAlign: "center",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
       }}
     >
-      <h1 className="text-3xl font-bold text-center">Get Dog Pictures</h1>
-      <Card>
-        <CardMedia component={"img"} image={dogImage} alt="dog img"></CardMedia>
-        <CardContent>
-          <Typography variant="h5">Dog Pictures</Typography>
-        </CardContent>
-        <CardActions>
-          <Button size="small" onClick={() => refreshDogImage()}>
-            Refresh
-          </Button>
-          <Button size="small"></Button>
-        </CardActions>
-      </Card>
+      <Typography variant="h4" gutterBottom>
+        Get Dog Pictures
+      </Typography>
+      <Box sx={{ maxWidth: 400, maxHeight: 400 }}>
+        <Card sx={{ width: "100%", height: "100%", objectFit: "contain" }}>
+          <CardMedia
+            component="img"
+            image={dogImage}
+            alt="dog img"
+            sx={{
+              maxWidth: "100%",
+              maxHeight: "100%",
+              width: "100%",
+              height: "100%",
+            }}
+          />
+          <CardContent>
+            <Typography variant="h5">Dog Pictures</Typography>
+          </CardContent>
+          <CardActions>
+            <Button size="small" onClick={refreshDogImage}>
+              Refresh
+            </Button>
+          </CardActions>
+        </Card>
+      </Box>
     </Box>
   );
 };
