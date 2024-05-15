@@ -1,5 +1,6 @@
 import DogImage from "./components/DogImage";
 import DogNotFound from "./components/DogNotFound";
+import SpecificBreed from "./components/SpecificBreed";
 
 import {
   Route,
@@ -14,6 +15,7 @@ const App = () => {
     createRoutesFromElements(
       <Route path="/" element={<MainLayout />}>
         <Route path="/dog" element={<DogImage />} />
+        <Route path="/specific-dog" element={<SpecificBreed />} />
         <Route path="*" element={<DogNotFound />} />
       </Route>
     )
