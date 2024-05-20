@@ -81,22 +81,17 @@ const SpecificBreed = () => {
       </Typography>
       <Box sx={{ width: 250 }}>
         <TextField
-          style={{ marginBottom: "16px" }}
           select
           fullWidth
           label="Select dog breed"
           value={selectedBreed}
           onChange={handleBreedChange}
         >
+          <MenuItem value="">Select Dog Breed</MenuItem>
           {breeds.map((breed) => (
-            <MenuItem
-              key={breed}
-              value={breed}
-              sx={{
-                backgroundColor: "white", // Set the background color of the menu
-                color: "black",
-              }}
-            />
+            <MenuItem key={breed} value={breed}>
+              {breed.charAt(0).toUpperCase() + breed.slice(1)}
+            </MenuItem>
           ))}
         </TextField>
       </Box>
