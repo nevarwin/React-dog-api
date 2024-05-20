@@ -19,7 +19,7 @@ const SpecificBreed = () => {
   const [loading, setLoading] = React.useState<boolean>(false);
 
   const handleBreedChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(event.target.value);
+    // console.log(event.target.value);
     setSelectedBreed(event.target.value as string);
   };
 
@@ -44,7 +44,6 @@ const SpecificBreed = () => {
       });
       const data = await response.json();
       setBreeds(Object.keys(data.message));
-      console.log(data.message);
     };
     fetchBreeds();
   }, []);
@@ -56,7 +55,6 @@ const SpecificBreed = () => {
           `https://dog.ceo/api/breed/${selectedBreed}/images/random`
         );
         const data = await response.json();
-        console.log(data.state);
         setDogImage(data.message);
       } catch (error) {
         console.log("Error fetching dog image", error);
